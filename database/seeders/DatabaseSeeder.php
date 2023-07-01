@@ -21,16 +21,16 @@ class DatabaseSeeder extends Seeder
         Registration::factory(15)->create();
 
         Category::create([
-            'name' => 'Web Programming',
-            'slug' => 'web-programming'
+            'name' => 'Konser',
+            'slug' => 'konser'
         ]);
         Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
+            'name' => 'Hajatan Wibu',
+            'slug' => 'hajatan-wibu'
         ]);
         Category::create([
-            'name' => 'Web Design',
-            'slug' => 'web-design'
+            'name' => 'Perlombaan',
+            'slug' => 'perlombaan'
         ]);
 
         // \App\Models\User::factory()->create([

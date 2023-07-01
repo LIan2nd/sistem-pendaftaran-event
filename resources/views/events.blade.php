@@ -11,4 +11,7 @@
         </ul>
         <hr>
     @endforeach
+    <div class="text-center">
+        {{ $events->links() }}
+    </div>
 @endsection

@@ -8,7 +8,7 @@
         <div class="nav-menu">
             <nav class="mainmenu mobile-menu">
                 <ul>
-                    <li class=""><a href="./index.html">Home</a></li>
+                    <li class=""><a href="/">Home</a></li>
                     <li><a href="/events">Events</a></li>
                     <li><a href="/history">History</a>
                     </li>
