@@ -46,7 +46,7 @@
                             <ul class="dropdown">
                                 @if (Auth::user()->role_id == 1)
                                 @else
-                                    <li><a class="text-decoration-none" href="#"><i
+                                    <li><a class="text-decoration-none" href="/dashboard"><i
                                                 class="fa-solid fa-table-columns"></i><span
                                                 class="ms-2">Dashboard</span></a></li>
                                 @endif
