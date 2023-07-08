@@ -26,7 +26,11 @@ Route::group(['middleware' => ['auth', 'role:1,2']], function () {
     Route::get('/registration/histories', [RegistrationController::class, 'history']);
 });
 Route::group(['middleware' => ['auth', 'role:2']], function () {
-
+    Route::get('/dashboard', function () {
+        return view('dashboard.index', [
+            'events' => Event::latest()->get()
+        ]);
+    });
 });
 Route::group(['middleware' => ['auth', 'role:3']], function () {
 
