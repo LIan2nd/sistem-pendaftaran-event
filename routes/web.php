@@ -4,7 +4,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\RegistrationController;
 use App\Models\Category;
 use App\Models\Event;
+use illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Event\EventCollection;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'role:1,2']], function () {
@@ -30,6 +33,7 @@ Route::group(['middleware' => ['auth', 'role:3']], function () {
 });
 
 Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/event/{event:slug}', [EventController::class, 'show']);
 Route::get('/registration', [RegistrationController::class, 'index']);
 
 Route::get('/', function () {

@@ -22,4 +22,10 @@ class EventController extends Controller
             'events' => Event::latest()->filter(request(['search', 'category']))->paginate(5)->withQueryString(),
         ]);
     }
+    public function show(Event $event)
+    {
+        return view('event', [
+            'event' =>  $event]);
+        
+    }
 }

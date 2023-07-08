@@ -55,7 +55,7 @@
                                 </div>
                             </a>
                             <div class="bi-text">
-                                <h5><a href="" class="text-decoration-none">{{ $events[0]->name }}</a></h5>
+                                <h5><a href="/events/event/{{$events[0]->slug}}" class="text-decoration-none">{{ $events[0]->name }}</a></h5>
                                 <span><i class="fa fa-clock-o"></i> {{ $events[0]->date }}</span>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                     </div>
                                 </a>
                                 <div class="bi-text">
-                                    <h3><a href="" class="text-decoration-none">{{ $event->name }}</a>
+                                    <h3><a href="/events/event/{{ $event->slug }}" class="text-decoration-none">{{ $event->name }}</a>
                                     </h3>
                                     <span><i class="fa fa-clock-o"></i> {{ $event->date }}</span>
                                 </div>
