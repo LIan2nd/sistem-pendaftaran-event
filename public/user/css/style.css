@@ -113,6 +113,11 @@ ol {
   Helper CSS
 -----------------------*/
 
+.custom-select:focus {
+    border-color: #f44949; /* Ganti dengan warna yang Anda inginkan */
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25); /* Efek bayangan jika diinginkan */
+}
+
 .section-title {
 	text-align: center;
 	margin-bottom: 52px;
@@ -1053,7 +1058,7 @@ ol {
 }
 
 /*---------------------
-  Home Contact 
+  Home Contact
 -----------------------*/
 
 .contact-section .section-title {

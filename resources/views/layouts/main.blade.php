@@ -6,13 +6,7 @@
     </div>
 
     @include('partials.navbar')
-
-    <section class="home-about-section spad">
-        <div class="container">
-            @yield('content')
-        </div>
-    </section>
-
+    @yield('content')
     @include('partials.footer')
     @include('partials.script')
 </body>

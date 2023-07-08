@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\RegistrationController;
+use App\Models\Category;
+use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +18,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/history', [EventController::class, 'history']);
-Route::get('/events', [EventController::class, 'events']);
+Route::get('/events', [EventController::class, 'index']);
 Route::get('/registration', [RegistrationController::class, 'index']);
+Route::get('/registration/histories', [RegistrationController::class, 'history'])->middleware('auth');
+Route::get('/categories', function () {
+    return view('categories', [
+        'categories' => Category::all(),
+        'events' => Event::latest()->get()
+    ]);
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

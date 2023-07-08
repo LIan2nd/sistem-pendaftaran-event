@@ -28,15 +28,15 @@
     });
 
     /*------------------
-		Navigation
-	--------------------*/
+        Navigation
+    --------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
     });
 
     /*------------------------
-		Partner Slider
+        Partner Slider
     ----------------------- */
     $(".partner-logo").owlCarousel({
         items: 6,
@@ -65,7 +65,7 @@
     });
 
     /*------------------------
-		Testimonial Slider
+        Testimonial Slider
     ----------------------- */
     $(".testimonial-slider").owlCarousel({
         items: 2,
@@ -101,7 +101,7 @@
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
 
-    if(mm == 12) {
+    if (mm == 12) {
         mm = '01';
         yyyy = yyyy + 1;
     } else {
@@ -110,12 +110,12 @@
     }
     var timerdate = mm + '/' + dd + '/' + yyyy;
     // For demo preview end
-    
+
 
     // Use this for real timer date
     /*  var timerdate = "2020/01/01"; */
 
-	$("#countdown").countdown(timerdate, function(event) {
+    $("#countdown").countdown(timerdate, function (event) {
         $(this).html(event.strftime("<div class='cd-item'><span>%D</span> <p>Days</p> </div>" + "<div class='cd-item'><span>%H</span> <p>Hrs</p> </div>" + "<div class='cd-item'><span>%M</span> <p>Mins</p> </div>" + "<div class='cd-item'><span>%S</span> <p>Secs</p> </div>"));
     });
 

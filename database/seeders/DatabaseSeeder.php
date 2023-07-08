@@ -29,8 +29,8 @@ class DatabaseSeeder extends Seeder
             'slug' => 'hajatan-wibu'
         ]);
         Category::create([
-            'name' => 'Perlombaan',
-            'slug' => 'perlombaan'
+            'name' => 'Seminar',
+            'slug' => 'seminar'
         ]);
 
         // \App\Models\User::factory()->create([
