@@ -21,24 +21,46 @@
                             href="/registration">Registration</a></li>
                     </li>
                     <li>|</li>
-                    <li>@guest<a class="text-decoration-none" href="{{ route('login') }}"><i
-                                    class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
-                        @else<a class="text-decoration-none" href="#"><i class="fa-solid fa-user"></i>
-                                {{ Auth::user()->name }}</a>
+                    @guest<li><a class="text-decoration-none" href="{{ route('login') }}"><i
+                                    class="fa-solid fa-arrow-right-to-bracket"></i><span class="ms-2">Login</span></a>
+                        </li>
+                    @else
+                        @if (Auth::user()->role_id == 3)
+                        @else
+                            <li><a class="text-decoration-none" href="/registration/histories"><i
+                                        class="fa-solid fa-book{{ Request::is('registration/histories') ? '-open' : '' }}"></i></a>
+                        @endif
+                        <li>
+                            <a class="text-decoration-none" href="#">
+                                @if (Auth::user()->role_id == 1)
+                                    <i class="fa-solid fa-user"></i>
+                                @endif
+                                @if (Auth::user()->role_id == 2)
+                                    <i class="fa-solid fa-user-plus"></i>
+                                @endif
+                                @if (Auth::user()->role_id == 3)
+                                    <i class="fa-solid fa-user-tie"></i>
+                                @endif
+                                <span class="ms-1">{{ Auth::user()->name }}</span>
+                            </a>
                             <ul class="dropdown">
-                                <li><a class="text-decoration-none" href="#"><i class="fa-solid fa-table-columns"></i>
-                                        Dashboard</a></li>
+                                @if (Auth::user()->role_id == 1)
+                                @else
+                                    <li><a class="text-decoration-none" href="#"><i
+                                                class="fa-solid fa-table-columns"></i><span
+                                                class="ms-2">Dashboard</span></a></li>
+                                @endif
                                 <li><a class="text-decoration-none" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();"><i
-                                            class="fa-solid fa-right-from-bracket"></i> logout</a>
+                                            class="fa-solid fa-right-from-bracket"></i><span
+                                            class="ms-2">logout</span></a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </li>
                             </ul>
-                        <li><a class="text-decoration-none" href="/registration/histories"><i
-                                    class="fa-{{ Request::is('registration/histories') ? 'solid' : 'regular' }} fa-clipboard"></i></a>
+
                         @endguest
                     </li>
                 </ul>

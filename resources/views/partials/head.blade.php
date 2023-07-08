@@ -11,8 +11,8 @@
         @if (Request::is('events'))
             Events
         @endif
-        @if (Request::is('histories'))
-            History
+        @if (Request::is('registration/histories'))
+            Histories
         @endif
         @if (Request::is('registration'))
             Registration

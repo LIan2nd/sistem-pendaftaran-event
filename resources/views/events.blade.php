@@ -88,9 +88,9 @@
     </section>
 @else
     <div class="text-center">
-        <p><i class="fa-solid fa-face-sad-tear"></i> Event belum tersedia! <a class="text-decoration-none text-black"
-                href="/categories"><strong>Cari Berdasarkan
-                    Kategori</strong></a></p>
+        <p><i class="fa-solid fa-face-sad-tear"></i> The event isn't available yet! <a
+                class="text-decoration-none text-black" href="/events"><strong>See available events here</strong></a>
+        </p>
     </div>
     @endif
 

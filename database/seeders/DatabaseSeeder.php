@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Event;
 use App\Models\Registration;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(5)->create();
-        Event::factory(10)->create();
+        Event::factory(30)->create();
         Registration::factory(15)->create();
 
         Category::create([
@@ -31,6 +32,15 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'Seminar',
             'slug' => 'seminar'
+        ]);
+        Role::create([
+            'name' => 'Common'
+        ]);
+        Role::create([
+            'name' => 'Uncommon'
+        ]);
+        Role::create([
+            'name' => 'Rare'
         ]);
 
         // \App\Models\User::factory()->create([

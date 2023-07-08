@@ -33,8 +33,8 @@
         </div>
     @else
         <div class="text-center mb-5">
-            <p><i class="fa-regular fa-face-meh-blank"></i> Anda belum melakukan Registrasi ke Event manapun, segera
-                melakukan <a class="text-decoration-none text-black" href="/registration"><strong>Registrasi</strong></a>
+            <p><i class="fa-regular fa-face-meh-blank"></i> You haven't registered to any event, <a
+                    class="text-decoration-none text-black" href="/registration"><strong>Register Here!</strong></a>
             </p>
         </div>
     @endif
