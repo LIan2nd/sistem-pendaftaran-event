@@ -19,7 +19,7 @@ class RegistrationController extends Controller
     {
         return view('history', [
             // 'events' => Event::all(),
-            'registrations' => Registration::latest()->paginate(5)
+            'registrations' => Registration::latest()->get()
         ]);
     }
 }
