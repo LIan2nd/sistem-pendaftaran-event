@@ -10,7 +10,9 @@
             <select class="form-control form-select" name="event" id="event">
                 <option value="none" disabled selected>-- EVENT LIST --</option>
                 @foreach ($events as $event)
-                    <option value="{{ $event->id }}">{{ $event->name }}</option>
+                    <option value="{{ $event->id }}" {{ $event->id == $eventName ? 'selected' : '' }}>
+                        {{ $event->name }}
+                    </option>
                 @endforeach
             </select>
             <label for="nickname" class="mt-4">Nickname : </label>

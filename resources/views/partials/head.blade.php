@@ -7,24 +7,18 @@
     <title>{{ config('app.name', 'Laravel') }} |
         @if (Request::is('/'))
             Home
-        @endif
-        @if (Request::is('events'))
+        @elseif (Request::is('events'))
             Events
-        @endif
-        @if (Request::is('registration/histories'))
+        @elseif (Request::is('registration/histories'))
             Histories
-        @endif
-        @if (Request::is('registration'))
-            Registration
-        @endif
-        @if (Request::is('categories'))
+        @elseif (Request::is('categories'))
             Categories
-        @endif
-        @if (Request::is('login'))
+        @elseif (Request::is('login'))
             User Login
-        @endif
-        @if (Request::is('register'))
+        @elseif (Request::is('register'))
             User Register
+        @else
+            {{ $title }}
         @endif
     </title>
     <meta name="description" content="">
@@ -35,17 +29,16 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{ asset('user') }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('user') }}/css/bootstrap.minc.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/owl.carousel.min.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('user') }}/css/elegant-icons.css" type="text/css">
     {{-- Awesome Icon --}}
     <link rel="stylesheet" href="{{ asset('user') }}/css/fontawesome.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/fontawesome.min.css">
     {{-- -- --}}
     <link rel="stylesheet" href="{{ asset('user') }}/css/themify-icons.css">
-    <link rel="stylesheet" href="{{ asset('user') }}/css/nice-select.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/animate.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/slicknav.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/style.css">
-    <link rel="stylesheet" href="{{ asset('user') }}/css/responsive.css">
 </head>

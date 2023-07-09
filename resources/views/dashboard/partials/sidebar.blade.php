@@ -65,10 +65,10 @@
         </li>
         <!-- Misc -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Menu</span></li>
-        <li class="menu-item {{ Request::is('dashboard/posts*') ? 'active' : '' }}">
-            <a href="/dashboard/posts" class="menu-link">
+        <li class="menu-item {{ Request::is('dashboard/events*') ? 'active' : '' }}">
+            <a href="/dashboard/events" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
-                <div data-i18n="Support">Posts</div>
+                <div data-i18n="Support">Events</div>
             </a>
         </li>
         {{-- <li class="menu-item">

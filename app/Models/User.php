@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'role_id',
@@ -53,4 +54,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    public function hasRegistered($event_id)
+    {
+        return $this->registration()->where('event_id', $event_id)->exists();
+    }
+
 }

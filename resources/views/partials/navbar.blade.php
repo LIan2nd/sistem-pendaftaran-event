@@ -17,12 +17,10 @@
                             href="/events">Events</a></li>
                     <li class="{{ Request::is('categories') ? 'active' : '' }}"><a class="text-decoration-none"
                             href="/categories">Categories</a></li>
-                    <li class="{{ Request::is('registration') ? 'active' : '' }}"><a class="text-decoration-none"
-                            href="/registration">Registration</a></li>
                     </li>
                     <li>|</li>
                     @guest<li><a class="text-decoration-none" href="{{ route('login') }}"><i
-                                    class="fa-solid fa-arrow-right-to-bracket"></i><span class="ms-2">Login</span></a>
+                                    class="fa-solid fa-arrow-right-to-bracket me-2"></i><span>Login</span></a>
                         </li>
                     @else
                         @if (Auth::user()->role_id == 3)
@@ -33,28 +31,26 @@
                         <li>
                             <a class="text-decoration-none" href="#">
                                 @if (Auth::user()->role_id == 1)
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fa-solid fa-user me-2"></i>
                                 @endif
                                 @if (Auth::user()->role_id == 2)
-                                    <i class="fa-solid fa-user-plus"></i>
+                                    <i class="fa-solid fa-user-plus me-2"></i>
                                 @endif
                                 @if (Auth::user()->role_id == 3)
-                                    <i class="fa-solid fa-user-tie"></i>
+                                    <i class="fa-solid fa-user-tie me-2"></i>
                                 @endif
-                                <span class="ms-1">{{ Auth::user()->name }}</span>
+                                {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown">
                                 @if (Auth::user()->role_id == 1)
                                 @else
                                     <li><a class="text-decoration-none" href="/dashboard"><i
-                                                class="fa-solid fa-table-columns"></i><span
-                                                class="ms-2">Dashboard</span></a></li>
+                                                class="fa-solid fa-table-columns me-2"></i> Dashboard</a></li>
                                 @endif
                                 <li><a class="text-decoration-none" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();"><i
-                                            class="fa-solid fa-right-from-bracket"></i><span
-                                            class="ms-2">logout</span></a>
+                                            class="fa-solid fa-right-from-bracket me-2"></i> logout</span></a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

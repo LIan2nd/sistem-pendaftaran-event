@@ -28,6 +28,18 @@ class Event extends Model
                 fn($query) => $query->where('slug', $category)
             )
         );
+        $query->when(
+            $filters['EO'] ?? false,
+            fn($query, $EO) => $query->whereHas(
+                'EO',
+                fn($query) => $query->where('username', $EO)
+            )
+        );
+    }
+
+    public function EO()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function registration()
@@ -38,5 +50,10 @@ class Event extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

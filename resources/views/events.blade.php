@@ -10,6 +10,8 @@
                         <h2>
                             @if (Request::has('category'))
                                 <a class="text-decoration-none text-black" href="/events">All Events</a>
+                            @elseif (Request::has('EO'))
+                                <a class="text-decoration-none text-black" href="/events">All Events</a>
                             @else
                                 All Events
                             @endif {{ $head }}
@@ -31,6 +33,8 @@
                 <form action="/events" class="comment-form contact-form ni-form" role="search">
                     @if (request('category'))
                         <input type="hidden" name="category" value="{{ request('category') }}">
+                    @elseif (request('EO'))
+                        <input type="hidden" name="EO" value="{{ request('EO') }}">
                     @endif
                     <div class="row">
                         <div class="col-lg-11">
@@ -47,6 +51,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        @if (session('event'))
+                            <div class="alert alert-danger" role="alert">
+                                <i class="fa-regular fa-calendar-check"></i> {{ session('event') }}
+                            </div>
+                        @endif
                         <div class="blog-item set-bg"
                             data-setbg="{{ asset('user') }}/img/blog/{{ $events[0]->category->slug }}.jpg">
                             <a class="text-decoration-none text-white"
@@ -55,8 +64,13 @@
                                 </div>
                             </a>
                             <div class="bi-text">
-                                <h5><a href="/events/event/{{$events[0]->slug}}" class="text-decoration-none">{{ $events[0]->name }}</a></h5>
-                                <span><i class="fa fa-clock-o"></i> {{ $events[0]->date }}</span>
+                                <h3><a href="/events/event/{{ $events[0]->slug }}"
+                                        class="text-decoration-none">{{ $events[0]->name }}</a></h3>
+                                <span><i class="fa fa-clock-o me-1"></i> {{ $events[0]->date }} | <a
+                                        class="text-decoration-none text-white"
+                                        href="/events?EO={{ $events[0]->EO->username }}"><i
+                                            class="fa-solid fa-ghost me-1"></i>
+                                        {{ $events[0]->EO->name }}</a></span>
                             </div>
                         </div>
                     </div>
@@ -70,9 +84,14 @@
                                     </div>
                                 </a>
                                 <div class="bi-text">
-                                    <h3><a href="/events/event/{{ $event->slug }}" class="text-decoration-none">{{ $event->name }}</a>
+                                    <h3><a href="/events/event/{{ $event->slug }}"
+                                            class="text-decoration-none">{{ $event->name }}</a>
                                     </h3>
-                                    <span><i class="fa fa-clock-o"></i> {{ $event->date }}</span>
+                                    <span><i class="fa fa-clock-o me-1"></i> {{ $event->date }} | <a
+                                            class="text-decoration-none text-white"
+                                            href="/events?EO={{ $event->EO->username }}"><i
+                                                class="fa-solid fa-ghost me-1"></i>
+                                            {{ $event->EO->name }}</a></span>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
     data-assets-path="{{ asset('admin') }}/assets/" data-template="vertical-menu-template-free">
 
@@ -8,7 +7,14 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>{{ config('app.name', 'Laravel') }} | Admin | </title>
+    <title>{{ config('app.name', 'Laravel') }} | @if (Request::is('dashboard'))
+            Dashboard
+        @elseif (Request::is('dashboard/events'))
+            Events
+        @else
+            {{ $title }}
+        @endif
+    </title>
 
     <meta name="description" content="" />
 

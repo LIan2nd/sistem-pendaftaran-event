@@ -35,7 +35,7 @@
                         <p>We offer various categories of events, including:</p>
                         <ul>
                             @foreach ($categories as $category)
-                                <li><i class="fa-solid fa-check"></i> {{ $category->name }}</li>
+                                <li><span class="icon_check me-1"></span> {{ $category->name }}</li>
                             @endforeach
                         </ul>
                         <p>So, what are you waiting for?</p>
@@ -96,7 +96,8 @@
                                                             href="/events?category={{ $event->category->slug }}"
                                                             class="site-btn text-decoration-none text-white">More
                                                             Event on this Category <i
-                                                                class="fa-solid fa-angles-right"></i></a></th>
+                                                                class="fa-solid fa-angles-right"></i></a>
+                                                    </th>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -135,8 +136,8 @@
                             <li>Keynote talk</li>
                             <li>Talk to the Editors Session</li>
                         </ul>
-                        <a href="#" class="text-decoration-none price-btn">Get Ticket <i
-                                class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#" class="text-decoration-none price-btn">Get Ticket <span
+                                class="arrow_right ms-1"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
@@ -157,8 +158,8 @@
                             <li>Lunch and Networking</li>
                             <li>Keynote talk</li>
                         </ul>
-                        <a href="#" class="text-decoration-none price-btn">Get Ticket <i
-                                class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#" class="text-decoration-none price-btn">Get Ticket <span
+                                class="arrow_right ms-1"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
@@ -174,8 +175,8 @@
                             <li>Keynote talk</li>
                             <li>Talk to the Editors Session</li>
                         </ul>
-                        <a href="#" class="text-decoration-none price-btn">Get Ticket <i
-                                class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#" class="text-decoration-none price-btn">Get Ticket <span
+                                class="arrow_right ms-1"></span></a>
                     </div>
                 </div>
             </div>
@@ -203,7 +204,10 @@
                         </a>
                         <div class="li-text">
                             <h4><a href="./blog-details.html" class="text-decoration-none">{{ $events[0]->name }}</a></h4>
-                            <span><i class="fa fa-clock-o"></i> {{ $events[0]->date }}</span>
+                            <span><i class="fa fa-clock-o me-1"></i> {{ $events[0]->date }} | <a
+                                    class="text-decoration-none text-white"
+                                    href="/events?EO={{ $events[0]->EO->username }}"><i class="fa-solid fa-ghost me-1"></i>
+                                    {{ $events[0]->EO->name }}</a></span>
                         </div>
                     </div>
                 </div>
@@ -216,7 +220,11 @@
                             </a>
                             <div class="li-text">
                                 <h5><a href="" class="text-decoration-none">{{ $event->name }}</a></h5>
-                                <span><i class="fa fa-clock-o"></i> {{ $event->date }}</span>
+                                <span><i class="fa fa-clock-o me-1"></i> {{ $event->date }} | <a
+                                        class="text-decoration-none text-white"
+                                        href="/events?EO={{ $event->EO->username }}"><i
+                                            class="fa-solid fa-ghost me-1"></i>
+                                        {{ $event->EO->name }}</a></span>
                             </div>
                         </div>
                     @endforeach

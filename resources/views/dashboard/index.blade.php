@@ -9,11 +9,10 @@
                             <div class="card-body">
                                 <h5 class="card-title text-primary">Welcome back, {{ Auth::user()->name }} 🎉</h5>
                                 <p class="mb-4">
-                                    Let's create a <span class="fw-bold">Posts</span> easly with us
+                                    Let's create an <span class="fw-bold">Event</span> easly with us
                                 </p>
 
-                                <a href="/dashboard/posts" class="btn btn-sm btn-outline-primary">View
-                                    Posts</a>
+                                <a href="/dashboard/posts" class="btn btn-sm btn-outline-primary">View All Event Yours</a>
                             </div>
                         </div>
                         <div class="col-sm-5 text-center text-sm-left">
@@ -183,7 +182,7 @@
             <div class="col-md-6 col-lg-4 order-2 mb-4">
                 <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="card-title m-0 me-2">Latest Post</h5>
+                        <h5 class="card-title m-0 me-2">Latest Event</h5>
                         <div class="dropdown">
                             <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -197,22 +196,27 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <ul class="p-0 m-0">
-                            @foreach ($events as $event)
-                                <li class="d-flex mb-4 pb-1">
-                                    <div class="avatar flex-shrink-0 me-5">
-                                        <a href="/dashboard/posts/{{ $event->slug }}" class="btn btn-success"><i
-                                                class='bx bx-left-arrow-alt'></i></a>
-                                    </div>
-                                    <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div>
-                                            <small class="text-muted d-block mb-1">{{ $event->category->name }}</small>
-                                            <h6 class="mb-0">{{ $event->title }}</h6>
+                        @if ($events->count())
+                            <ul class="p-0 m-0">
+                                @foreach ($events->take(3) as $event)
+                                    <li class="d-flex mb-4 pb-1">
+                                        <div class="avatar flex-shrink-0 me-5">
+                                            <a href="/dashboard/posts/{{ $event->slug }}" class="btn btn-success"><i
+                                                    class='bx bx-left-arrow-alt'></i></a>
                                         </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
+                                        <div
+                                            class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                            <div>
+                                                <small class="text-muted d-block mb-1">{{ $event->category->name }}</small>
+                                                <h6 class="mb-0">{{ $event->name }}</h6>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p>No Events</p>
+                        @endif
                     </div>
                 </div>
             </div>

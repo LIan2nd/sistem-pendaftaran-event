@@ -29,11 +29,11 @@
                     <div class="bh-text">
                         {{-- <a href="https://www.youtube.com/watch?v=EzKkl64rRbM" class="play-btn video-popup"><i
                                 class="fa fa-play"></i></a> --}}
-                        <h2>{{$event->name}}</h2>
+                        <h2>{{ $event->name }}</h2>
                         <ul>
-                            <li><span>By <strong>{{$event->category->name}}</strong></span></li>
-                            <li>{{$event->date}}</li>
-                            <li>No Comments</li>
+                            <li><span>In <strong>{{ $event->category->name }}</strong></span></li>
+                            <li>{{ $event->date }}</li>
+                            <li>Event Organized by {{ $event->EO->name }}</li>
                         </ul>
                     </div>
                 </div>
@@ -44,12 +44,29 @@
 
     <section class="blog-details-section">
         <div class="container">
-            <div class="row justify-content-center mb-5">
+            <div class="row justify-content-center mb-4">
                 <div class="col-lg-8">
-                     <p class="display-4">Description :</p>
+                    <h4 class="display-4 mb-4">Description :</h4>
                     <article>
                         <p>{!! $event->description !!}</p>
                     </article>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end mb-5">
+                <div class="col-lg-4">
+                    @guest
+                        <p>Login untuk daftar ke Event</p>
+                    @else
+                        @if (!auth()->user()->hasRegistered($event->id))
+                            <form action="/registration" method="post">
+                                @csrf
+                                <input type="hidden" name="event_id" value="{{ $event->id }}">
+                                <button class="site-btn" type="submit">Daftar</button>
+                            </form>
+                        @else
+                            <h5><i class="fa-regular fa-calendar-check me-2"></i> You have Registered on this Event</h5>
+                        @endif
+                    @endguest
                 </div>
             </div>
         </div>

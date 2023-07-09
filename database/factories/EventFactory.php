@@ -18,6 +18,7 @@ class EventFactory extends Factory
     {
         return [
             'category_id' => mt_rand(1, 3),
+            'user_id' => mt_rand(1, 5),
             'name' => fake()->sentence(mt_rand(1, 3)),
             'slug' => fake()->slug(mt_rand(1, 3)),
             'description' => fake()->paragraph(mt_rand(5, 10)),

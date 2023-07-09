@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventDashboardController;
 use App\Http\Controllers\RegistrationController;
 use App\Models\Category;
 use App\Models\Event;
@@ -24,11 +25,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth', 'role:1,2']], function () {
     Route::get('/registration/histories', [RegistrationController::class, 'history']);
+    Route::post('/registration', [RegistrationController::class, 'store']);
 });
-Route::group(['middleware' => ['auth', 'role:2']], function () {
+Route::group(['middleware' => ['auth', 'role:2,3']], function () {
+    Route::resource('/dashboard/events', EventDashboardController::class);
+
     Route::get('/dashboard', function () {
         return view('dashboard.index', [
-            'events' => Event::latest()->get()
+            'events' => Event::where('user_id', Auth::user()->id)->get(),
         ]);
     });
 });
@@ -38,17 +42,16 @@ Route::group(['middleware' => ['auth', 'role:3']], function () {
 
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/event/{event:slug}', [EventController::class, 'show']);
-Route::get('/registration', [RegistrationController::class, 'index']);
 
 Route::get('/', function () {
     return view('home', [
         'categories' => Category::latest()->get(),
-        'events' => Event::latest()->get()
+        'events' => Event::latest()->get(),
     ]);
 });
 Route::get('/categories', function () {
     return view('categories', [
         'categories' => Category::all(),
-        'events' => Event::latest()->get()
+        'events' => Event::latest()->get(),
     ]);
 });
