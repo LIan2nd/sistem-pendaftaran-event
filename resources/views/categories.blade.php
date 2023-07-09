@@ -44,7 +44,7 @@
                                                         <img src="{{ asset('user') }}/img//blog/{{ $event->category->slug }}.jpg"
                                                             class="card-img" alt="{{ $event->category->slug }}">
                                                         <div class="card-img-overlay d-flex align-items-center p-0">
-                                                            <h5 class="card-title flex-fill text-center display-1 p-4"
+                                                            <h5 class="card-title flex-fill text-light text-center display-1 p-4"
                                                                 style="background-color: rgba(0,0,0,0.5)">
                                                                 {{ $event->category->name }}</h5>
                                                         </div>

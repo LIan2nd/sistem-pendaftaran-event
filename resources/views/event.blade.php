@@ -64,7 +64,7 @@
                                 <button class="site-btn" type="submit">Daftar</button>
                             </form>
                         @else
-                            <h5><i class="fa-regular fa-calendar-check me-2"></i> You have Registered on this Event</h5>
+                            <h5><i class="fa-regular fa-calendar-check me-2"></i> You've Registered on this Event</h5>
                         @endif
                     @endguest
                 </div>

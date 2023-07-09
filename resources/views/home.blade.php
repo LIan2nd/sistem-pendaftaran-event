@@ -205,7 +205,7 @@
                         <div class="li-text">
                             <h4><a href="./blog-details.html" class="text-decoration-none">{{ $events[0]->name }}</a></h4>
                             <span><i class="fa fa-clock-o me-1"></i> {{ $events[0]->date }} | <a
-                                    class="text-decoration-none text-white"
+                                    class="text-decoration-none text-light"
                                     href="/events?EO={{ $events[0]->EO->username }}"><i class="fa-solid fa-ghost me-1"></i>
                                     {{ $events[0]->EO->name }}</a></span>
                         </div>
@@ -221,7 +221,7 @@
                             <div class="li-text">
                                 <h5><a href="" class="text-decoration-none">{{ $event->name }}</a></h5>
                                 <span><i class="fa fa-clock-o me-1"></i> {{ $event->date }} | <a
-                                        class="text-decoration-none text-white"
+                                        class="text-decoration-none text-light"
                                         href="/events?EO={{ $event->EO->username }}"><i
                                             class="fa-solid fa-ghost me-1"></i>
                                         {{ $event->EO->name }}</a></span>

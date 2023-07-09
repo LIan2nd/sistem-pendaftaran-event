@@ -20,7 +20,7 @@
                     </li>
                     <li>|</li>
                     @guest<li><a class="text-decoration-none" href="{{ route('login') }}"><i
-                                    class="fa-solid fa-arrow-right-to-bracket me-2"></i><span>Login</span></a>
+                                    class="fa-solid fa-arrow-right-to-bracket me-2"></i> Login</a>
                         </li>
                     @else
                         @if (Auth::user()->role_id == 3)

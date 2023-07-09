@@ -9,9 +9,9 @@
                     <div class="breadcrumb-text">
                         <h2>
                             @if (Request::has('category'))
-                                <a class="text-decoration-none text-black" href="/events">All Events</a>
+                                <a class="text-decoration-none text-dark" href="/events">All Events</a>
                             @elseif (Request::has('EO'))
-                                <a class="text-decoration-none text-black" href="/events">All Events</a>
+                                <a class="text-decoration-none text-dark" href="/events">All Events</a>
                             @else
                                 All Events
                             @endif {{ $head }}
@@ -58,7 +58,7 @@
                         @endif
                         <div class="blog-item set-bg"
                             data-setbg="{{ asset('user') }}/img/blog/{{ $events[0]->category->slug }}.jpg">
-                            <a class="text-decoration-none text-white"
+                            <a class="text-decoration-none text-light"
                                 href="/events?category={{ $events[0]->category->slug }}">
                                 <div class="bi-tag bg-gradient">{{ $events[0]->category->name }}
                                 </div>
@@ -67,7 +67,7 @@
                                 <h3><a href="/events/event/{{ $events[0]->slug }}"
                                         class="text-decoration-none">{{ $events[0]->name }}</a></h3>
                                 <span><i class="fa fa-clock-o me-1"></i> {{ $events[0]->date }} | <a
-                                        class="text-decoration-none text-white"
+                                        class="text-decoration-none text-light"
                                         href="/events?EO={{ $events[0]->EO->username }}"><i
                                             class="fa-solid fa-ghost me-1"></i>
                                         {{ $events[0]->EO->name }}</a></span>
@@ -78,7 +78,7 @@
                         <div class="col-lg-6">
                             <div class="blog-item set-bg"
                                 data-setbg="{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg">
-                                <a class="text-decoration-none text-white"
+                                <a class="text-decoration-none text-light"
                                     href="/events?category={{ $event->category->slug }}">
                                     <div class="bi-tag bg-gradient">{{ $event->category->name }}
                                     </div>
@@ -88,7 +88,7 @@
                                             class="text-decoration-none">{{ $event->name }}</a>
                                     </h3>
                                     <span><i class="fa fa-clock-o me-1"></i> {{ $event->date }} | <a
-                                            class="text-decoration-none text-white"
+                                            class="text-decoration-none text-light"
                                             href="/events?EO={{ $event->EO->username }}"><i
                                                 class="fa-solid fa-ghost me-1"></i>
                                             {{ $event->EO->name }}</a></span>

@@ -29,7 +29,7 @@
                                                     <div class="col-lg-5">
                                                         <div class="sc-text">
                                                             <h4><a href="/events/event/{{ $registration->event->slug }}"
-                                                                    @class(['text-decoration-none', 'text-black'])>
+                                                                    class="text-decoration-none text-dark">
                                                                     {{ $registration->event->name }}</a></h4>
                                                             <ul>
                                                                 <li><i class="fa-solid fa-id-badge me-2"></i> Registration
