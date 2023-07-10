@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2>Register Event History</h2>
+                            <h2>Registration Event History</h2>
                             <p>Thank You for Your Registration</p>
                         </div>
                     </div>
