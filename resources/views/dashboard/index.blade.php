@@ -12,7 +12,7 @@
                                     Let's create an <span class="fw-bold">Event</span> easly with us
                                 </p>
 
-                                <a href="/dashboard/posts" class="btn btn-sm btn-outline-primary">View All Event Yours</a>
+                                <a href="/dashboard/events" class="btn btn-sm btn-outline-primary">View All Event Yours</a>
                             </div>
                         </div>
                         <div class="col-sm-5 text-center text-sm-left">
@@ -201,7 +201,7 @@
                                 @foreach ($events->take(3) as $event)
                                     <li class="d-flex mb-4 pb-1">
                                         <div class="avatar flex-shrink-0 me-5">
-                                            <a href="/dashboard/posts/{{ $event->slug }}" class="btn btn-success"><i
+                                            <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-success"><i
                                                     class='bx bx-left-arrow-alt'></i></a>
                                         </div>
                                         <div

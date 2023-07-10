@@ -13,7 +13,7 @@
                                 </p>
 
                                 @if ($events->count())
-                                    <a href="/dashboard/posts/create" class="btn btn-sm btn-outline-primary"><i
+                                    <a href="/dashboard/events/create" class="btn btn-sm btn-outline-primary"><i
                                             class='bx bx-plus'></i> Create new
                                         Event</a>
                                 @else
@@ -34,15 +34,15 @@
         </div>
 
         @if (session('success'))
-            <div class="alert alert-info alert-dismissible" role="alert">
-                {{ session('success') }}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <strong><i class='bx bxs-radiation'></i> {{ session('success') }} <i class='bx bx-cut'></i></strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
         @if ($events->count())
             <div class="card">
-                <h5 class="card-header">All Posts</h5>
+                <h5 class="card-header">All events</h5>
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
                         <thead>
@@ -67,10 +67,18 @@
                                     <td class="text-center">
                                         <a class="btn btn-outline-info" href="/dashboard/events/{{ $event->slug }}"><span
                                                 class="badge me-2"><i class="bx bx-detail me-1"></i></span></a>
-                                        <a class="btn btn-outline-warning" href="/dashboard/events/update"><span
-                                                class="badge me-2"><i class="bx bx-edit-alt me-1"></i></span></a>
-                                        <a class="btn btn-outline-danger" href="/dashboard/events/delete"><span
-                                                class="badge me-2"><i class="bx bx-trash me-1"></i></span></a>
+                                        <a class="btn btn-outline-warning"
+                                            href="/dashboard/events/{{ $event->slug }}/edit"><span class="badge me-2"><i
+                                                    class="bx bx-edit-alt me-1"></i></span></a>
+                                        <form action="/dashboard/events/{{ $event->slug }}" class="d-inline"
+                                            method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-outline-danger d-inline"
+                                                onclick="return confirm('Are You sure u want to DESTROYY this event?')"
+                                                type="submit"><span class="badge me-2"><i
+                                                        class="bx bx-trash me-1"></i></span></button>
+                                        </form>
                                     </td>
                             @endforeach
                             </tr>
@@ -85,7 +93,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-info">Ooppss!!</h5>
                             <p class="card-text">You haven't an Event yet, Let's make some <storng>Event</strong>.</p>
-                            <a href="posts/create" class="btn btn-primary">Create an Event</a>
+                            <a href="events/create" class="btn btn-primary">Create an Event</a>
                         </div>
                     </div>
                 </div>

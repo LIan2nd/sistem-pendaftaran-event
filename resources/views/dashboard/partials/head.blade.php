@@ -11,6 +11,8 @@
             Dashboard
         @elseif (Request::is('dashboard/events'))
             Events
+        @elseif (Request::is('dashboard/events/create'))
+            Create Event
         @else
             {{ $title }}
         @endif
