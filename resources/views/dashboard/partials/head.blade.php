@@ -13,6 +13,14 @@
             Events
         @elseif (Request::is('dashboard/events/create'))
             Create Event
+        @elseif (Request::is('dashboard/admin/events'))
+            Events
+        @elseif (Request::is('dashboard/admin/categories'))
+            Categories
+        @elseif (Request::is('dashboard/admin/users'))
+            Users
+        @elseif (Request::is('dashboard/admin/subcriptions'))
+            Subcriptions
         @else
             {{ $title }}
         @endif

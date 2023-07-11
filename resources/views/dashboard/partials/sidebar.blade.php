@@ -71,6 +71,31 @@
                 <div data-i18n="Support">Events</div>
             </a>
         </li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Administrator</span></li>
+        <li class="menu-item {{ Request::is('dashboard/events*') ? 'active' : '' }}">
+            <a href="/dashboard/admin/events" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div data-i18n="Support">Events</div>
+            </a>
+        </li>
+        <li class="menu-item {{ Request::is('dashboard/categories*') ? 'active' : '' }}">
+            <a href="/dashboard/admin/categories" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div data-i18n="Support">Categories</div>
+            </a>
+        </li>
+        <li class="menu-item {{ Request::is('dashboard/users*') ? 'active' : '' }}">
+            <a href="/dashboard/admin/users" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div data-i18n="Support">Users</div>
+            </a>
+        </li>
+        <li class="menu-item {{ Request::is('dashboard/subcriptions*') ? 'active' : '' }}">
+            <a href="/dashboard/admin/subcriptions" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div data-i18n="Support">Subcriptions</div>
+            </a>
+        </li>
         {{-- <li class="menu-item">
             <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank"
                 class="menu-link">

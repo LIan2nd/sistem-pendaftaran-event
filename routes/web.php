@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\AnotherController;
+use App\Http\Controllers\CategoryAdminController;
+use App\Http\Controllers\EventAdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventDashboardController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SubcriptionAdminController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\UserAdminController;
 use App\Models\Category;
 use App\Models\Event;
 use illuminate\Support\Facades\Auth;
@@ -56,7 +60,10 @@ Route::group(['middleware' => ['auth', 'role:2,3']], function () {
 
 // Route untuk Rare Role
 Route::group(['middleware' => ['auth', 'role:3']], function () {
-
+    Route::resource('/dashboard/admin/events', EventAdminController::class);
+    Route::resource('/dashboard/admin/categories', CategoryAdminController::class);
+    Route::resource('/dashboard/admin/users', UserAdminController::class);
+    Route::resource('/dashboard/admin/subcriptions', SubcriptionAdminController::class);
 });
 
 // Route dengan Controller dan Tanpa otentikasi
