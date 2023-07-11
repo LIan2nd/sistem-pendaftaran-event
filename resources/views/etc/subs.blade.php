@@ -1,1 +1,1 @@
-Thanks for Subscribe
+Thanks for Subscribe <a href="/">back to home</a>

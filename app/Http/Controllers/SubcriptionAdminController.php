@@ -12,8 +12,8 @@ class SubcriptionAdminController extends Controller
      */
     public function index()
     {
-        return view('dashboard.admin.subriptions.index', [
-            'subcriptions' => Subscribe::all()
+        return view('dashboard.admin.subscriptions.index', [
+            'subscriptions' => Subscribe::all()
         ]);
     }
 

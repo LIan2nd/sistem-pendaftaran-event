@@ -69,4 +69,8 @@ class User extends Authenticatable
         return $this->belongsTo(Subscribe::class);
     }
 
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
 }

@@ -25,7 +25,7 @@
                     </button>
                 @elseif(Auth::user()->role_id == 3)
                     <button type="button" class="btn btn-outline-primary">
-                        <i class='bx bx-user-plus'></i>&nbsp; {{ Auth::user()->role->name }}
+                        <i class='bx bxs-user-plus'></i>&nbsp; {{ Auth::user()->role->name }}
                     </button>
                 @endif
             </li>

@@ -9,13 +9,13 @@
                             <div class="card-body">
                                 <h5 class="card-title text-primary">Hii, {{ Auth::user()->name }} 🎉</h5>
                                 <p class="mb-4">
-                                    These all your <span class="fw-bold">Events</span>, wanna make a new Event?
+                                    These all your <span class="fw-bold">Users</span>, wanna make a new User?
                                 </p>
 
-                                @if ($events->count())
-                                    <a href="/dashboard/events/create" class="btn btn-sm btn-outline-primary"><i
+                                @if ($subscriptions->count())
+                                    <a href="/dashboard/admin/users/create" class="btn btn-sm btn-outline-primary"><i
                                             class='bx bx-plus'></i> Create new
-                                        Event</a>
+                                        User</a>
                                 @else
                                 @endif
                             </div>
@@ -40,32 +40,28 @@
             </div>
         @endif
 
-        @if ($events->count())
+        @if ($subscriptions->count())
             <div class="card">
-                <h5 class="card-header">All events</h5>
+                <h5 class="card-header">All Users</h5>
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Event Organized</th>
+                                <th>User</th>
+                                <th>Subscribed Email</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($events as $event)
+                            @foreach ($subscriptions as $subscription)
                                 <tr>
                                     <td>
                                         <i class="fab fa-bootstrap fa-lg text-primary me-3"></i>
                                         <strong>{{ $loop->iteration }}</strong>
                                     </td>
-                                    <td>{{ $event->name }}</td>
+                                    <td>{{ $subscription->user->name }}</td>
                                     <td>
-                                        {{ $event->category->name }}
-                                    </td>
-                                    <td>
-                                        {{ $event->EO->name }}
+                                        {{ $subscription->email }}
                                     </td>
                             @endforeach
                             </tr>
@@ -79,8 +75,8 @@
                     <div class="card shadow-none bg-transparent border border-info text-center mb-3">
                         <div class="card-body">
                             <h5 class="card-title text-info">Ooppss!!</h5>
-                            <p class="card-text">You haven't an Event yet, Let's make some <storng>Event</strong>.</p>
-                            <a href="events/create" class="btn btn-primary">Create an Event</a>
+                            <p class="card-text">You haven't an User yet, Let's make some <storng>User</strong>.</p>
+                            <a href="users/create" class="btn btn-primary">Create an User</a>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,6 @@
                                 <p class="mb-4">
                                     These all your <span class="fw-bold">Categories-</span>, wanna make a new Category?
                                 </p>
-
                                 @if ($categories->count())
                                     <a href="/dashboard/admin/categories" class="btn btn-sm btn-outline-primary"><i
                                             class='bx bx-plus'></i> Create new
@@ -64,13 +63,13 @@
                                         <a class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-offset="0,4"
                                             data-bs-placement="top" data-bs-html="true"
                                             title="<i class='bx bx-info-circle'></i>&nbsp; <span>category Detail</span>"
-                                            href="/dashboard/admin/categories/{{ $category->slug }}"><span class="badge me-2"><i
-                                                    class="bx bx-detail me-1"></i></span></a>
+                                            href="/dashboard/admin/categories/{{ $category->slug }}"><span
+                                                class="badge me-2"><i class="bx bx-detail me-1"></i></span></a>
                                         <a class="btn btn-outline-warning" data-bs-toggle="tooltip" data-bs-offset="0,4"
                                             data-bs-placement="top" data-bs-html="true"
                                             title="<i class='bx bx-edit'></i>&nbsp; <span>category Edit</span>"
-                                            href="/dashboard/admin/categories/{{ $category->slug }}/edit"><span class="badge me-2"><i
-                                                    class="bx bx-edit-alt me-1"></i></span></a>
+                                            href="/dashboard/admin/categories/{{ $category->slug }}/edit"><span
+                                                class="badge me-2"><i class="bx bx-edit-alt me-1"></i></span></a>
                                         <form action="/dashboard/admin/categories/{{ $category->slug }}" class="d-inline"
                                             method="post">
                                             @method('delete')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -62,6 +63,8 @@ class UserAdminController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        // User::destroy($user->id);
+        // Event::destroy($user->event_user);
+        // return redirect('/dashboard/admin/users')->with('success', 'User has been Deleted');
     }
 }

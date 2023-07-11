@@ -49,6 +49,8 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>Role</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -60,7 +62,32 @@
                                     </td>
                                     <td>{{ $user->name }}</td>
                                     <td>
-                                        {{ $user->name }}
+                                        @if ($user->role_id == 1)
+                                            <button class="btn btn-secondary" style="min-width: 150px">
+                                                <span class="badge me-2">{{ $user->role->name }}</span>
+                                            </button>
+                                        @elseif($user->role_id == 2)
+                                            <button class="btn btn-info" style="min-width: 150px">
+                                                <span class="badge me-2">{{ $user->role->name }}</span>
+                                            </button>
+                                        @elseif($user->role_id == 3)
+                                            <button class="btn btn-primary" style="min-width: 150px">
+                                                <span class="badge me-2">{{ $user->role->name }}</span>
+                                            </button>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <form action="/dashboard/admin/users/{{ $user->username }}" class="d-inline"
+                                            method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-outline-danger d-inline" data-bs-toggle="tooltip"
+                                                data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true"
+                                                title="<i class='bx bx-message-alt-x'></i>&nbsp; <span>This is if You want to delete User, Lord</span>"
+                                                onclick="return confirm('Are You sure u want to Delete this User, Lord?')"
+                                                type="submit"><span class="badge me-2"><i
+                                                        class='bx bx-user-x'></i></span></button>
+                                        </form>
                                     </td>
                             @endforeach
                             </tr>
