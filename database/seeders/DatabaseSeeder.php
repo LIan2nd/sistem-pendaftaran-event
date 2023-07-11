@@ -18,15 +18,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'LIand',
-            'username' => 'LIandd',
+            'name' => 'Administrator',
+            'username' => 'admin',
             'role_id' => 3,
-            'email' => 'LIand@gmail.com',
-            'password' => bcrypt('rootroot')
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin123')
         ]);
 
         User::factory(5)->create();
-        Event::factory(10)->create();
+        Event::factory(5)->create();
         Registration::factory(15)->create();
 
         Category::create([
