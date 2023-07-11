@@ -61,7 +61,7 @@ Route::group(['middleware' => ['auth', 'role:3']], function () {
 
 // Route dengan Controller dan Tanpa otentikasi
 Route::get('/events', [EventController::class, 'index']);
-Route::get('/events/event/{event:slug}', [EventController::class, 'show']);
+Route::get('/events/event/{event:slug}', [EventController::class, 'show'])->name('eventShow');
 
 // Route Tanpa Controller
 Route::get('/', function () {

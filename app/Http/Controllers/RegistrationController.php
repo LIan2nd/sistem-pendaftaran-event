@@ -19,14 +19,9 @@ class RegistrationController extends Controller
 
     public function store(Request $request)
     {
-        $event = $request->event_id;
-
-        // return view('registration', [
-        //     'eventName' => $event,
-        //     'events' => Event::latest()->get(),
-        //     'title' => "Registration"
-        // ]);
-
+        if (Auth::user()->hasRegistered($request->event_id)) {
+            return redirect()->route('eventShow', $request->event_slug)->with('event', "You've Registered");
+        }
         $validatedData = $request->validate([
             'event_id' => 'required'
         ]);
@@ -34,6 +29,6 @@ class RegistrationController extends Controller
         $validatedData['user_id'] = Auth::user()->id;
 
         Registration::create($validatedData);
-        return redirect('/events')->with('event', 'Terimakasih Sudah Daftar, catat tanggalnyaa dan sampai jumpa di Event');
+        return redirect()->route('eventShow', $request->event_slug)->with('event', 'Thank you for registering, note the date and see you at the Event');
     }
 }

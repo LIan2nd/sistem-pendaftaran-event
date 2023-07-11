@@ -18,6 +18,14 @@
                 </div>
             </div>
         </div>
+        @if (session('event'))
+            <div class="container mt-5">
+                <div class="alert alert-success" role="alert">
+                    <i class="fa-regular fa-calendar-check"></i> {{ session('event') }}
+                </div>
+                <a href="/registration/histories" class="site-btn"><span class="arrow_left ms-1"></span> View Histories</a>
+            </div>
+        @endif
     </section>
     <!-- Breadcrumb Section End -->
 
@@ -68,6 +76,7 @@
                         @elseif (Auth::user()->id != $event->EO->id && !Auth::user()->hasRegistered($event->id))
                             <form action="/registration" method="post">
                                 @csrf
+                                <input type="hidden" name="event_slug" value="{{ $event->slug }}">
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
                                 <button class="site-btn" type="submit">Daftar</button>
                             </form>

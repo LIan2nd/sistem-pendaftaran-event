@@ -21,6 +21,8 @@
             User Register
         @elseif (Request::is('register/eo'))
             EO Register
+        @elseif (Request::is('registered'))
+            EO Register
         @else
             {{ $title }}
         @endif

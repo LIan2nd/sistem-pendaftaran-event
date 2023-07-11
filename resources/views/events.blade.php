@@ -51,11 +51,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        @if (session('event'))
-                            <div class="alert alert-danger" role="alert">
-                                <i class="fa-regular fa-calendar-check"></i> {{ session('event') }}
-                            </div>
-                        @endif
                         <div class="blog-item set-bg"
                             data-setbg="@if ($events[0]->image) {{ asset('storage/' . $events[0]->image) }} @else {{ asset('user') }}/img/blog/{{ $events[0]->category->slug }}.jpg @endif">
                             <a class="text-decoration-none text-light"
