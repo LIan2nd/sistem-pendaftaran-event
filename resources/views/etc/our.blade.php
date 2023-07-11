@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>who made</h2>
-                        <p>This is our website, you can see information about available events</p>
+                        <h2>Who's Made</h2>
+                        <p>This is our website, You can see information about available events</p>
                     </div>
                 </div>
             </div>
