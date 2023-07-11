@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/', [
-
+        return view('home', [
+            'categories' => Category::latest()->get(),
+            'events' => Event::latest()->get(),
         ]);
     }
 }
