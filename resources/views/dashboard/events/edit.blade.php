@@ -35,7 +35,8 @@
                                 <small class="text-muted float-end">Created with Love <i class='bx bxs-skull'></i></small>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="/dashboard/events/{{ $event->slug }}">
+                                <form method="POST" action="/dashboard/events/{{ $event->slug }}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="mb-3">
@@ -72,6 +73,29 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label @error('image') is-invalid @enderror">Event
+                                            Image</label>
+                                        <input type="hidden" name="oldImage" value="{{ $event->image }}">
+                                        @if ($event->image)
+                                            <img src="{{ asset('storage/' . $event->image) }}"
+                                                class="img-preview img-fluid mb-2 col-sm-8 d-block">
+                                        @else
+                                            <img class="img-preview img-fluid mb-2 col-sm-8">
+                                        @endif
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" id="image" name="image"
+                                                onchange="previewImage()" />
+                                        </div>
+                                        @error('image')
+                                            <div class="form-text text-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <div id="defaultFormControlHelp" class="form-text mt-2">
+                                            Optional | max 5MB
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>

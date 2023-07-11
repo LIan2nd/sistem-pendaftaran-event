@@ -27,8 +27,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                <img src="{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg" alt="{{ $event->category->name }}"
-                    class="image-fluid mt-3" style="width: 100%; height: 400px">
+                @if ($event->image)
+                    <div style="max-height:350; overflow:hidden;">
+                        <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->category->name }}"
+                            class="image-fluid mt-3" style="width: 100%; height: 400px">
+                    </div>
+                @else
+                    <img src="{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg"
+                        alt="{{ $event->category->name }}" class="image-fluid mt-3" style="width: 100%; height: 400px">
+                @endif
                 <article @class(['my-3', 'fs-5'])>
                     <p>{!! $event->description !!}</p>
                 </article>

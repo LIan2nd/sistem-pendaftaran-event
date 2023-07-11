@@ -35,7 +35,7 @@
                                 <small class="text-muted float-end">Create with Love <i class='bx bxs-skull'></i></small>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="/dashboard/events">
+                                <form method="POST" action="/dashboard/events" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
                                         <label class="form-label" for="name">Name</label>
@@ -69,6 +69,23 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label @error('image') is-invalid @enderror">Event
+                                            Image</label>
+                                        <img class="img-preview img-fluid mb-2 col-sm-8">
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" id="image" name="image"
+                                                onchange="previewImage()" />
+                                        </div>
+                                        @error('image')
+                                            <div class="form-text text-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <div id="defaultFormControlHelp" class="form-text mt-2">
+                                            Optional | max 5MB
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>

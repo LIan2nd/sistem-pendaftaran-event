@@ -22,8 +22,8 @@
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                         <div class="sc-pic">
-                                                            <img src="{{ asset('user') }}/img/blog/{{ $registration->event->category->slug }}.jpg"
-                                                                alt="">
+                                                            <img src="@if ($registration->event->image) {{ asset('storage/' . $registration->event->image) }} @else {{ asset('user') }}/img/blog/{{ $registration->event->category->slug }}.jpg @endif"
+                                                                alt="{{ $registration->event->category->name }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-5">
@@ -67,11 +67,19 @@
             </div>
         </section>
     @else
-        <div class="text-center mb-5">
-            <p><i class="fa-regular fa-face-meh-blank"></i> You haven't registered to any event, <a
-                    class="text-decoration-none text-black" href="/events"><strong>Find
-                        Event</strong></a>
-            </p>
-        </div>
+        <section class="schedule-section spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mb-5">
+                            <p><i class="fa-regular fa-face-meh-blank"></i> You haven't registered to any event, <a
+                                    class="text-decoration-none text-dark" href="/events"><strong>Find
+                                        Event</strong></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     @endif
 @endsection

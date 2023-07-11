@@ -7,6 +7,7 @@ use App\Models\Event;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class EventDashboardController extends Controller
 {
@@ -39,8 +40,13 @@ class EventDashboardController extends Controller
             'name' => 'required|max:255|min:3',
             'category_id' => 'required',
             'description' => 'required|min:5',
-            'date' => 'required|date'
+            'date' => 'required|date',
+            'image' => 'image|file|max:5120'
         ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('event-images');
+        }
 
         $validatedData['slug'] = SlugService::createSlug(Event::class, 'slug', $request->name);
         $validatedData['user_id'] = Auth::user()->id;
@@ -80,6 +86,7 @@ class EventDashboardController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255|min:3',
             'category_id' => 'required',
+            'image' => 'image|file|max:5120',
             'description' => 'required|min:5',
             'date' => 'required|date'
         ]);
@@ -96,14 +103,14 @@ class EventDashboardController extends Controller
         }
         $validatedData['user_id'] = Auth::user()->id;
 
-        $event->update([
-            'name' => $request->name,
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'date' => $request->date,
-            'slug' => $validatedData['slug'],
-            'user_id' => $validatedData['user_id'],
-        ]);
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('event-images');
+        }
+
+        $event->update($validatedData);
 
         return redirect()->route('events.show', $validatedData['slug'])->with('update', 'Event has been Updated!');
     }
@@ -113,8 +120,10 @@ class EventDashboardController extends Controller
      */
     public function destroy(Event $event)
     {
+        if ($event->image) {
+            Storage::delete($event->image);
+        }
         Event::destroy($event->id);
-
         return redirect('/dashboard/events')->with('success', 'Event has been Slainn !!!!');
     }
 }

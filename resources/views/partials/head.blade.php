@@ -7,6 +7,8 @@
     <title>{{ config('app.name', 'Laravel') }} |
         @if (Request::is('/'))
             Home
+        @elseif (Request::is('our'))
+            Siapa Kita?
         @elseif (Request::is('events'))
             Events
         @elseif (Request::is('registration/histories'))
@@ -17,6 +19,8 @@
             User Login
         @elseif (Request::is('register'))
             User Register
+        @elseif (Request::is('register/eo'))
+            EO Register
         @else
             {{ $title }}
         @endif

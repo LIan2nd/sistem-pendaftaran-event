@@ -35,7 +35,7 @@
 
         @if (session('success'))
             <div class="alert alert-danger alert-dismissible" role="alert">
-                <strong><i class='bx bxs-radiation'></i> {{ session('success') }} <i class='bx bx-cut'></i></strong>
+                <strong><i class='bx bx-cut'></i> {{ session('success') }} <i class='bx bxs-radiation'></i></strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
@@ -65,16 +65,23 @@
                                         {{ $event->category->name }}
                                     </td>
                                     <td class="text-center">
-                                        <a class="btn btn-outline-info" href="/dashboard/events/{{ $event->slug }}"><span
-                                                class="badge me-2"><i class="bx bx-detail me-1"></i></span></a>
-                                        <a class="btn btn-outline-warning"
+                                        <a class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                                            data-bs-placement="top" data-bs-html="true"
+                                            title="<i class='bx bx-info-circle'></i>&nbsp; <span>Event Detail</span>"
+                                            href="/dashboard/events/{{ $event->slug }}"><span class="badge me-2"><i
+                                                    class="bx bx-detail me-1"></i></span></a>
+                                        <a class="btn btn-outline-warning" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                                            data-bs-placement="top" data-bs-html="true"
+                                            title="<i class='bx bx-edit'></i>&nbsp; <span>Event Edit</span>"
                                             href="/dashboard/events/{{ $event->slug }}/edit"><span class="badge me-2"><i
                                                     class="bx bx-edit-alt me-1"></i></span></a>
                                         <form action="/dashboard/events/{{ $event->slug }}" class="d-inline"
                                             method="post">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-outline-danger d-inline"
+                                            <button class="btn btn-outline-danger d-inline" data-bs-toggle="tooltip"
+                                                data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true"
+                                                title="<i class='bx bx-message-alt-x'></i>&nbsp; <span>Event Delete</span>"
                                                 onclick="return confirm('Are You sure u want to DESTROYY this event?')"
                                                 type="submit"><span class="badge me-2"><i
                                                         class="bx bx-trash me-1"></i></span></button>

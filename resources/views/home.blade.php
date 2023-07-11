@@ -5,9 +5,10 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="hero-text">
-                        <span>5 to 9 may 2019, mardavall hotel, New York</span>
-                        <h2>Change Your Mind<br /> To Become Sucess</h2>
-                        <a href="#" class="text-decoration-none primary-btn">Buy Ticket</a>
+                        <span>est. 2023 | Some Place, New Earth</span>
+                        <h2>Think before Act<br /> to Become Success</h2>
+                        <a href="/our" target="_blank" class="text-decoration-none primary-btn">Salah 3 dari anak
+                            TI07:2022&nbsp;<i class="fa-solid fa-heart-circle-bolt"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -117,27 +118,28 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Ticket Pricing</h2>
-                        <p>Get your event ticket plan</p>
+                        <h2>Role Pricing</h2>
+                        <p>What do You want to be?</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-8">
                     <div class="price-item">
-                        <h4>1 Day Pass</h4>
+                        <h4>uncommon</h4>
                         <div class="pi-price">
-                            <h2><span>$</span>129</h2>
+                            <h2><span>$</span>Free</h2>
                         </div>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
+                            <li>Register for available Events</li>
+                            <li>Register Your Event as one of the Events</li>
+                            <li>Have Your Personal Dashboard</li>
+                            <li>Make yourself EO</li>
+                            <li>Half-King</li>
                         </ul>
-                        <a href="#" class="text-decoration-none price-btn">Get Ticket <span
-                                class="arrow_right ms-1"></span></a>
+                        <a href="@guest /register/eo @else /done?user={{ Auth::user()->role->name }} @endguest"
+                            target="_blank" class="text-decoration-none price-btn">Get Role
+                            <span class="arrow_right ms-1"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
@@ -145,38 +147,40 @@
                         <div class="tr-tag">
                             <i class="fa fa-star"></i>
                         </div>
-                        <h4>Full Pass</h4>
+                        <h4>Rare</h4>
                         <div class="pi-price">
-                            <h2><span>$</span>199</h2>
+                            <h2><span>$</span>9999999</h2>
                         </div>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
+                            <li class="text-danger">Unable to Register for Available Events
+                                <br> Since you're an admin
+                            </li>
+                            <li>Register an Event and Become the "Best" EO</li>
+                            <li>Have a Personal Dashboard with More Privillege</li>
+                            <li>Be a King</li>
+                            <li>Be a King</li>
+                            <li>Be a King</li>
+                            <li>Be a King</li>
                         </ul>
-                        <a href="#" class="text-decoration-none price-btn">Get Ticket <span
-                                class="arrow_right ms-1"></span></a>
+                        <a href="@guest /lord @else /done?user={{ Auth::user()->role->name }} @endguest" target="_blank"
+                            class="text-decoration-none price-btn">Get Role
+                            <span class="arrow_right ms-1"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="price-item">
-                        <h4>Group Pass</h4>
+                        <h4>Common</h4>
                         <div class="pi-price">
-                            <h2><span>$</span>79</h2>
+                            <h2>Absolutely Free</h2>
                         </div>
                         <ul>
-                            <li>One Day Conference Ticket</li>
-                            <li>Coffee-break</li>
-                            <li>Lunch and Networking</li>
-                            <li>Keynote talk</li>
-                            <li>Talk to the Editors Session</li>
+                            <li>Register for available Events</li>
+                            <li>Yaudaa</li>
+                            <li>Yaudaa</li>
                         </ul>
-                        <a href="#" class="text-decoration-none price-btn">Get Ticket <span
-                                class="arrow_right ms-1"></span></a>
+                        <a href="@guest {{ route('register') }} @else /done?user={{ Auth::user()->role->name }} @endguest"
+                            target="_blank" class="text-decoration-none price-btn">Get Role
+                            <span class="arrow_right ms-1"></span></a>
                     </div>
                 </div>
             </div>
@@ -198,15 +202,18 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="latest-item set-bg large-item"
-                        data-setbg="{{ asset('user') }}/img/blog/{{ $events[0]->category->slug }}.jpg">
+                        data-setbg="@if ($events[0]->image) {{ asset('storage/' . $events[0]->image) }} @else {{ asset('user') }}/img/blog/{{ $events[0]->category->slug }}.jpg @endif">
                         <a href="events?category={{ $events[0]->category->slug }}">
                             <div class="li-tag">{{ $events[0]->category->name }}</div>
                         </a>
-                        <div class="li-text">
-                            <h4><a href="./blog-details.html" class="text-decoration-none">{{ $events[0]->name }}</a></h4>
+                        <div class="li-text"
+                            style="background-color: rgba(0,0,0,0.5); padding-top: 10px; padding-bottom: 10px;">
+                            <h4><a href="/events/event/{{ $events[0]->slug }}"
+                                    class="text-decoration-none">{{ $events[0]->name }}</a></h4>
                             <span><i class="fa fa-clock-o me-1"></i> {{ $events[0]->date }} | <a
                                     class="text-decoration-none text-light"
-                                    href="/events?EO={{ $events[0]->EO->username }}"><i class="fa-solid fa-ghost me-1"></i>
+                                    href="/events?EO={{ $events[0]->EO->username }}"><i
+                                        class="fa-solid fa-ghost me-1"></i>
                                     {{ $events[0]->EO->name }}</a></span>
                         </div>
                     </div>
@@ -214,12 +221,14 @@
                 <div class="col-lg-6">
                     @foreach ($events->skip(1)->take(2) as $event)
                         <div class="latest-item set-bg"
-                            data-setbg="{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg">
+                            data-setbg="@if ($event->image) {{ asset('storage/' . $event->image) }} @else{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg @endif">
                             <a href="events?category={{ $event->category->slug }}">
                                 <div class="li-tag">{{ $event->category->name }}</div>
                             </a>
-                            <div class="li-text">
-                                <h5><a href="" class="text-decoration-none">{{ $event->name }}</a></h5>
+                            <div class="li-text"
+                                style="background-color: rgba(0,0,0,0.5); padding-top: 10px; padding-bottom: 10px;">
+                                <h5><a href="/events/event/{{ $event->slug }}"
+                                        class="text-decoration-none">{{ $event->name }}</a></h5>
                                 <span><i class="fa fa-clock-o me-1"></i> {{ $event->date }} | <a
                                         class="text-decoration-none text-light"
                                         href="/events?EO={{ $event->EO->username }}"><i
@@ -242,8 +251,9 @@
                     <h3>Subscribe Newsletter</h3>
                     <p>Subscribe to our newsletter and don’t miss anything</p>
                 </div>
-                <form action="#" class="ni-form">
-                    <input type="text" placeholder="Your email">
+                <form action="/subscribe" method="POST" class="ni-form">
+                    @csrf
+                    <input type="email" name="email" placeholder="Your email" required>
                     <button type="submit">Subscribe</button>
                 </form>
             </div>

@@ -22,14 +22,14 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Blog Details Hero Section Begin -->
-    <section class="blog-hero-section set-bg" data-setbg="{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg">
+    <section class="blog-hero-section set-bg"
+        data-setbg="@if ($event->image) {{ asset('storage/' . $event->image) }} @else{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg @endif">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="bh-text">
-                        {{-- <a href="https://www.youtube.com/watch?v=EzKkl64rRbM" class="play-btn video-popup"><i
-                                class="fa fa-play"></i></a> --}}
-                        <h2>{{ $event->name }}</h2>
+                    <div class="bh-text"
+                        style="background-color: rgba(25, 24, 24, 0.5); padding-top: 15px; padding-bottom: 15px;">
+                        <h2 style="margin-top: 0px">{{ $event->name }}</h2>
                         <ul>
                             <li><span>In <strong>{{ $event->category->name }}</strong></span></li>
                             <li>{{ $event->date }}</li>
@@ -52,19 +52,34 @@
                     </article>
                 </div>
             </div>
-            <div class="row d-flex justify-content-end mb-5">
-                <div class="col-lg-4">
+            <div class="row d-flex justify-content-center mb-5" style="right: 0;">
+                <div class="col-lg-8">
                     @guest
                         <p>Login untuk daftar ke Event</p>
                     @else
-                        @if (!auth()->user()->hasRegistered($event->id))
+                        @php
+                            $userID = Auth::user()->id;
+                            $owner = $userID == $event->EO->id;
+                        @endphp
+                        @if (Auth::user()->role_id == 3)
+                            <h5><i class="fa-solid fa-hand-sparkles"></i>&nbsp; Hello,
+                                {{ Auth::user()->role->name }}&nbsp; <i class="fa-solid fa-user-secret"></i><br>Want to register
+                                for an Event? Please use another account</h5>
+                        @elseif (Auth::user()->id != $event->EO->id && !Auth::user()->hasRegistered($event->id))
                             <form action="/registration" method="post">
                                 @csrf
                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
                                 <button class="site-btn" type="submit">Daftar</button>
                             </form>
+                        @elseif ($owner)
+                            <h5><i class="fa-regular fa-handshake"></i>&nbsp; Hallo, EO!</h5>
+                        @elseif (Auth::user()->role_id == 3)
+                            <h5><i class="fa-solid fa-hand-sparkles"></i>&nbsp; Hello,
+                                {{ Auth::user()->role->name }}&nbsp; <i class="fa-solid fa-user-secret"></i><br>Ingin mendaftar
+                                ke
+                                Event? Silahkan gunakan akun lain</h5>
                         @else
-                            <h5><i class="fa-regular fa-calendar-check me-2"></i> You've Registered on this Event</h5>
+                            <h5><i class="fa-regular fa-calendar-check me-2"></i>&nbsp; You've Registered on this Event</h5>
                         @endif
                     @endguest
                 </div>

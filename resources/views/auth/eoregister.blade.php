@@ -4,11 +4,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                <div class="card border-danger">
+                    <div class="card-header"><a href="{{ route('register') }}" class="text-danger"><i
+                                class="fa-solid fa-left-long"></i>&nbsp;</a>{{ __('EO Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" class="comment-form contact-form">
+                        <form method="POST" action="/register/eo" class="comment-form contact-form">
                             @csrf
 
                             <div class="row mb-3">
@@ -90,12 +91,6 @@
                                     <button type="submit" class="site-btn">
                                         {{ __('Register') }}
                                     </button>
-                                </div>
-                            </div>
-                            <div class="row my-3">
-                                <div class="col-md-6 offset-md-4 d-flex justify-content-end">
-                                    Are you an EO?&nbsp;<a href="/register/eo" class="text-primary"
-                                        @style('text-decoration: underline;')>Register as EO</a>
                                 </div>
                             </div>
                         </form>

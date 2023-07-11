@@ -64,5 +64,9 @@ class User extends Authenticatable
     {
         return $this->registration()->where('event_id', $event_id)->exists();
     }
+    public function subscribe()
+    {
+        return $this->belongsTo(Subscribe::class);
+    }
 
 }

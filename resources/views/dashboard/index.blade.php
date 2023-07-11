@@ -215,7 +215,7 @@
                                 @endforeach
                             </ul>
                         @else
-                            <p>No Events</p>
+                            <p><i class='bx bx-file-blank'></i>&nbsp; No Events</p>
                         @endif
                     </div>
                 </div>
