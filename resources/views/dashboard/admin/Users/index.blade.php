@@ -9,15 +9,8 @@
                             <div class="card-body">
                                 <h5 class="card-title text-primary">Hii, {{ Auth::user()->name }} 🎉</h5>
                                 <p class="mb-4">
-                                    These all your <span class="fw-bold">Users</span>, wanna make a new User?
+                                    Loyal <span class="fw-bold">Users-</span> of Your Website
                                 </p>
-
-                                @if ($users->count())
-                                    <a href="/dashboard/admin/users/create" class="btn btn-sm btn-outline-primary"><i
-                                            class='bx bx-plus'></i> Create new
-                                        User</a>
-                                @else
-                                @endif
                             </div>
                         </div>
                         <div class="col-sm-5 text-center text-sm-left">
@@ -50,7 +43,6 @@
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Role</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -75,19 +67,6 @@
                                                 <span class="badge me-2">{{ $user->role->name }}</span>
                                             </button>
                                         @endif
-                                    </td>
-                                    <td>
-                                        <form action="/dashboard/admin/users/{{ $user->username }}" class="d-inline"
-                                            method="post">
-                                            @method('delete')
-                                            @csrf
-                                            <button class="btn btn-outline-danger d-inline" data-bs-toggle="tooltip"
-                                                data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true"
-                                                title="<i class='bx bx-message-alt-x'></i>&nbsp; <span>This is if You want to delete User, Lord</span>"
-                                                onclick="return confirm('Are You sure u want to Delete this User, Lord?')"
-                                                type="submit"><span class="badge me-2"><i
-                                                        class='bx bx-user-x'></i></span></button>
-                                        </form>
                                     </td>
                             @endforeach
                             </tr>

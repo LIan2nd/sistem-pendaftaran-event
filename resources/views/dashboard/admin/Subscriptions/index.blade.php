@@ -9,15 +9,8 @@
                             <div class="card-body">
                                 <h5 class="card-title text-primary">Hii, {{ Auth::user()->name }} 🎉</h5>
                                 <p class="mb-4">
-                                    These all your <span class="fw-bold">Users</span>, wanna make a new User?
+                                    Visitors, Users and even Customers ever <span class="fw-bold">on Website-</span>
                                 </p>
-
-                                @if ($subscriptions->count())
-                                    <a href="/dashboard/admin/users/create" class="btn btn-sm btn-outline-primary"><i
-                                            class='bx bx-plus'></i> Create new
-                                        User</a>
-                                @else
-                                @endif
                             </div>
                         </div>
                         <div class="col-sm-5 text-center text-sm-left">
