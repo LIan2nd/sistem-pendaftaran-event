@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(5)->create();
-        Event::factory(5)->create();
+        Event::factory(8)->create();
         Registration::factory(15)->create();
 
         Category::create([
