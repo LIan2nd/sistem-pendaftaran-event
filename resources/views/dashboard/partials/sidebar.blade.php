@@ -91,7 +91,7 @@
             </a>
         </li>
         <li class="menu-item {{ Request::is('dashboard/admin/subscriptions') ? 'active' : '' }}">
-            <a href="/dashboard/admin/subcriptions" class="menu-link">
+            <a href="/dashboard/admin/subscriptions" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user-plus"></i>
                 <div data-i18n="Support">Subscriptions</div>
             </a>

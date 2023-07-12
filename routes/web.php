@@ -63,7 +63,7 @@ Route::group(['middleware' => ['auth', 'role:3']], function () {
     Route::resource('/dashboard/admin/events', EventAdminController::class);
     Route::resource('/dashboard/admin/categories', CategoryAdminController::class);
     Route::resource('/dashboard/admin/users', UserAdminController::class);
-    Route::resource('/dashboard/admin/subcriptions', SubcriptionAdminController::class);
+    Route::resource('/dashboard/admin/subscriptions', SubcriptionAdminController::class);
 });
 
 // Route dengan Controller dan Tanpa otentikasi

@@ -19,7 +19,7 @@
             Categories
         @elseif (Request::is('dashboard/admin/users'))
             Users
-        @elseif (Request::is('dashboard/admin/subcriptions'))
+        @elseif (Request::is('dashboard/admin/subscriptions'))
             Subcriptions
         @else
             {{ $title }}
