@@ -9,7 +9,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-primary">Hii, {{ Auth::user()->name }} 🎉</h5>
                                 <p class="mb-4">
-                                    All <span class="fw-bold">Events-</span> Ever 
+                                    All <span class="fw-bold">Events-</span> Ever
                                 </p>
                             </div>
                         </div>
@@ -86,8 +86,7 @@
                     <div class="card shadow-none bg-transparent border border-info text-center mb-3">
                         <div class="card-body">
                             <h5 class="card-title text-info">Ooppss!!</h5>
-                            <p class="card-text">You haven't an Event yet, Let's make some <storng>Event</strong>.</p>
-                            <a href="events/create" class="btn btn-primary">Create an Event</a>
+                            <p class="card-text">No <storng>Event</strong>.</p>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,8 @@
                             <div class="card-body">
                                 <h5 class="card-title text-primary">Hii, {{ Auth::user()->name }} 🎉</h5>
                                 <p class="mb-4">
-                                    All categories here are your <span class="fw-bold">Categories-</span>, wanna make a new Category?
+                                    All categories here are your <span class="fw-bold">Categories-</span>, wanna make a new
+                                    Category?
                                 </p>
                                 @if ($categories->count())
                                     <a href="/dashboard/admin/categories/create" class="btn btn-sm btn-outline-primary"><i
@@ -89,8 +90,9 @@
                     <div class="card shadow-none bg-transparent border border-info text-center mb-3">
                         <div class="card-body">
                             <h5 class="card-title text-info">Ooppss!!</h5>
-                            <p class="card-text">You haven't an category yet, Let's make some <storng>category</strong>.</p>
-                            <a href="admin/categories/create" class="btn btn-primary">Create an category</a>
+                            <p class="card-text">We haven't category yet, Lord. Let's make some <storng>category</strong>.
+                            </p>
+                            <a href="admin/categories/create" class="btn btn-primary">Create a category</a>
                         </div>
                     </div>
                 </div>

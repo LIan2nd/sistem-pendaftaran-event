@@ -71,31 +71,34 @@
                 <div data-i18n="Support">Events</div>
             </a>
         </li>
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Administrator</span></li>
-        <li class="menu-item {{ Request::is('dashboard/admin/events') ? 'active' : '' }}">
-            <a href="/dashboard/admin/events" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-news"></i>
-                <div data-i18n="Support">Events</div>
-            </a>
-        </li>
-        <li class="menu-item {{ Request::is('dashboard/admin/categories') ? 'active' : '' }}">
-            <a href="/dashboard/admin/categories" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-category"></i>
-                <div data-i18n="Support">Categories</div>
-            </a>
-        </li>
-        <li class="menu-item {{ Request::is('dashboard/admin/users') ? 'active' : '' }}">
-            <a href="/dashboard/admin/users" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-user-detail"></i>
-                <div data-i18n="Support">Users</div>
-            </a>
-        </li>
-        <li class="menu-item {{ Request::is('dashboard/admin/subscriptions') ? 'active' : '' }}">
-            <a href="/dashboard/admin/subscriptions" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user-plus"></i>
-                <div data-i18n="Support">Subscriptions</div>
-            </a>
-        </li>
+        @if (Auth::user()->role->id == 3)
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Administrator</span></li>
+            <li class="menu-item {{ Request::is('dashboard/admin/events*') ? 'active' : '' }}">
+                <a href="/dashboard/admin/events" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-news"></i>
+                    <div data-i18n="Support">Events</div>
+                </a>
+            </li>
+            <li class="menu-item {{ Request::is('dashboard/admin/categories*') ? 'active' : '' }}">
+                <a href="/dashboard/admin/categories" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-category"></i>
+                    <div data-i18n="Support">Categories</div>
+                </a>
+            </li>
+            <li class="menu-item {{ Request::is('dashboard/admin/users*') ? 'active' : '' }}">
+                <a href="/dashboard/admin/users" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+                    <div data-i18n="Support">Users</div>
+                </a>
+            </li>
+            <li class="menu-item {{ Request::is('dashboard/admin/subscriptions*') ? 'active' : '' }}">
+                <a href="/dashboard/admin/subscriptions" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-user-plus"></i>
+                    <div data-i18n="Support">Subscriptions</div>
+                </a>
+            </li>
+        @else
+        @endif
         {{-- <li class="menu-item">
             <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank"
                 class="menu-link">

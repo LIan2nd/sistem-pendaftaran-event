@@ -80,8 +80,7 @@
                     <div class="card shadow-none bg-transparent border border-info text-center mb-3">
                         <div class="card-body">
                             <h5 class="card-title text-info">Ooppss!!</h5>
-                            <p class="card-text">You haven't an User yet, Let's make some <storng>User</strong>.</p>
-                            <a href="users/create" class="btn btn-primary">Create an User</a>
+                            <p class="card-text">No <storng>User</strong>.</p>
                         </div>
                     </div>
                 </div>

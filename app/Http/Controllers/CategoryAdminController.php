@@ -81,6 +81,6 @@ class CategoryAdminController extends Controller
             Storage::delete($category->image);
         }
         Category::destroy($category->id);
-        return redirect('/dashboard/categories')->with('success', 'Category has been Slainn !!!!');
+        return redirect('/dashboard/admin/categories')->with('success', 'Category has been Slainn !!!!');
     }
 }

@@ -35,7 +35,7 @@
 
         @if ($subscriptions->count())
             <div class="card">
-                <h5 class="card-header">All Users</h5>
+                <h5 class="card-header">All Subscription User</h5>
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
                         <thead>
@@ -67,9 +67,8 @@
                 <div class="col-md-8 col-lg-6">
                     <div class="card shadow-none bg-transparent border border-info text-center mb-3">
                         <div class="card-body">
-                            <h5 class="card-title text-info">Ooppss!!</h5>
-                            <p class="card-text">You haven't an User yet, Let's make some <storng>User</strong>.</p>
-                            <a href="users/create" class="btn btn-primary">Create an User</a>
+                            <h5 class="card-title text-info">Boomm!!</h5>
+                            <p class="card-text">No <storng>Subscription</strong>.</p>
                         </div>
                     </div>
                 </div>
