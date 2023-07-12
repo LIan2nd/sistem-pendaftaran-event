@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EventAdminController extends Controller
 {
@@ -22,6 +23,10 @@ class EventAdminController extends Controller
     }
     public function destroy(Event $event)
     {
-        //
+        if ($event->image) {
+            Storage::delete($event->image);
+        }
+        Event::destroy($event->id);
+        return redirect('/dashboard/events')->with('success', 'Event has been Slainn !!!!');
     }
 }

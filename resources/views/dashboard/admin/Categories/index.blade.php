@@ -12,7 +12,7 @@
                                     All categories here are your <span class="fw-bold">Categories-</span>, wanna make a new Category?
                                 </p>
                                 @if ($categories->count())
-                                    <a href="/dashboard/admin/categories" class="btn btn-sm btn-outline-primary"><i
+                                    <a href="/dashboard/admin/categories/create" class="btn btn-sm btn-outline-primary"><i
                                             class='bx bx-plus'></i> Create new
                                         Category</a>
                                 @else
@@ -33,8 +33,8 @@
         </div>
 
         @if (session('success'))
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <strong><i class='bx bx-cut'></i> {{ session('success') }} <i class='bx bxs-radiation'></i></strong>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <strong> {{ session('success') }} </i></strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif

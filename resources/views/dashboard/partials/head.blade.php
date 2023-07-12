@@ -21,6 +21,8 @@
             Users
         @elseif (Request::is('dashboard/admin/subscriptions'))
             Subcriptions
+        @elseif (Request::is('dashboard/admin/categories/create'))
+            Create Category
         @else
             {{ $title }}
         @endif

@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryAdminController extends Controller
 {
@@ -22,7 +27,8 @@ class CategoryAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.categories.create', [
+        ]);
     }
 
     /**
@@ -30,7 +36,14 @@ class CategoryAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255|min:1',
+        ]);
+
+        $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $request->name);
+
+        Category::create($validatedData);
+        return redirect('dashboard/admin/categories')->with('success', 'Category Create successfully!');
     }
 
     /**
@@ -38,7 +51,10 @@ class CategoryAdminController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('dashboard.admin.categories.edit', [
+            'title' => "Edit Category",
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -46,7 +62,14 @@ class CategoryAdminController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255|min:1',
+        ]);
+
+        $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $request->name);
+
+        $category->update($validatedData);
+        return redirect('dashboard/admin/categories')->with('success', 'Category Update Successfully!');
     }
 
     /**
@@ -54,6 +77,10 @@ class CategoryAdminController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if ($category->image) {
+            Storage::delete($category->image);
+        }
+        Category::destroy($category->id);
+        return redirect('/dashboard/categories')->with('success', 'Category has been Slainn !!!!');
     }
 }

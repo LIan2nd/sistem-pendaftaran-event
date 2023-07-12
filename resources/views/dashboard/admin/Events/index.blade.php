@@ -44,6 +44,7 @@
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Event Organized</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -59,6 +60,19 @@
                                     </td>
                                     <td>
                                         {{ $event->EO->name }}
+                                    </td>
+                                    <td class="text-center">
+                                        <form action="/dashboard/events/{{ $event->slug }}" class="d-inline"
+                                            method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-outline-danger d-inline" data-bs-toggle="tooltip"
+                                                data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true"
+                                                title="<i class='bx bx-message-alt-x'></i>&nbsp; <span>Event Delete</span>"
+                                                onclick="return confirm('Are You sure u want to DESTROYY this event?')"
+                                                type="submit"><span class="badge me-2"><i
+                                                        class="bx bx-trash me-1"></i></span></button>
+                                        </form>
                                     </td>
                             @endforeach
                             </tr>
