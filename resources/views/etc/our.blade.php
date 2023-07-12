@@ -32,7 +32,7 @@
                     </div>
                     <div class="mi-text">
                         <h5>Alfian Nur Usyaid</h5>
-                        <span>Maker</span>
+                        <span>Creator</span>
                     </div>
                 </div>
                 <div class="member-item set-bg" data-setbg="{{ asset('user') }}/img/team-member/fatiah.png">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="mi-text">
                         <h5>Fatiah Al Zahra</h5>
-                        <span>Maker</span>
+                        <span>Creator</span>
                     </div>
                 </div>
                 <div class="member-item set-bg" data-setbg="{{ asset('user') }}/img/team-member/alif.png">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="mi-text">
                         <h5>Alief Luqiakbar</h5>
-                        <span>Maker</span>
+                        <span>Creator</span>
                     </div>
                 </div>
                 <div class="member-item set-bg">
