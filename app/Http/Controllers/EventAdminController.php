@@ -27,6 +27,6 @@ class EventAdminController extends Controller
             Storage::delete($event->image);
         }
         Event::destroy($event->id);
-        return redirect('/dashboard/events')->with('success', 'Event has been Slainn !!!!');
+        return redirect('/dashboard/admin/events')->with('success', 'Event has been Slainn !!!!');
     }
 }

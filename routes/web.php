@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth', 'role:2,3']], function () {
 
 // Route untuk Rare Role
 Route::group(['middleware' => ['auth', 'role:3']], function () {
-    Route::resource('/dashboard/admin/events', EventAdminController::class)->except('show', 'create', 'edit', 'update', 'destroy', 'store');
+    Route::resource('/dashboard/admin/events', EventAdminController::class)->except('show', 'create', 'edit', 'update', 'store');
     Route::resource('/dashboard/admin/categories', CategoryAdminController::class)->except('show');
     Route::resource('/dashboard/admin/users', UserAdminController::class)->except('show', 'create', 'edit', 'update', 'destroy', 'store');
     Route::resource('/dashboard/admin/subscriptions', SubcriptionAdminController::class)->except('show', 'create', 'edit', 'update', 'destroy', 'store');

@@ -62,7 +62,7 @@
                                         {{ $event->EO->name }}
                                     </td>
                                     <td class="text-center">
-                                        <form action="/dashboard/events/{{ $event->slug }}" class="d-inline"
+                                        <form action="/dashboard/admin/events/{{ $event->slug }}" class="d-inline"
                                             method="post">
                                             @method('delete')
                                             @csrf
