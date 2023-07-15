@@ -35,9 +35,13 @@
                             for different types of events that interest you.</p>
                         <p>We offer various categories of events, including:</p>
                         <ul>
-                            @foreach ($categories as $category)
-                                <li><span class="icon_check me-1"></span> {{ $category->name }}</li>
-                            @endforeach
+                            @if ($categories->count())
+                                @foreach ($categories as $category)
+                                    <li><span class="icon_check me-1"></span> {{ $category->name }}</li>
+                                @endforeach
+                            @else
+                                <li>No Category</li>
+                            @endif
                         </ul>
                         <p>So, what are you waiting for?</p>
                         <a href="#event-by-category" class="text-decoration-none ha-btn">Explore Events here!</a>
@@ -199,46 +203,51 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="latest-item set-bg large-item"
-                        data-setbg="@if ($events[0]->image) {{ asset('storage/' . $events[0]->image) }} @else {{ asset('user') }}/img/blog/{{ $events[0]->category->slug }}.jpg @endif">
-                        <a href="events?category={{ $events[0]->category->slug }}">
-                            <div class="li-tag">{{ $events[0]->category->name }}</div>
-                        </a>
-                        <div class="li-text"
-                            style="background-color: rgba(0,0,0,0.5); padding-top: 10px; padding-bottom: 10px;">
-                            <h4><a href="/events/event/{{ $events[0]->slug }}"
-                                    class="text-decoration-none">{{ $events[0]->name }}</a></h4>
-                            <span><i class="fa fa-clock-o me-1"></i> {{ $events[0]->date }} | <a
-                                    class="text-decoration-none text-light"
-                                    href="/events?EO={{ $events[0]->EO->username }}"><i
-                                        class="fa-solid fa-ghost me-1"></i>
-                                    {{ $events[0]->EO->name }}</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    @foreach ($events->skip(1)->take(2) as $event)
-                        <div class="latest-item set-bg"
-                            data-setbg="@if ($event->image) {{ asset('storage/' . $event->image) }} @else{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg @endif">
-                            <a href="events?category={{ $event->category->slug }}">
-                                <div class="li-tag">{{ $event->category->name }}</div>
+            @if ($events->count())
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="latest-item set-bg large-item"
+                            data-setbg="@if ($events[0]->image) {{ asset('storage/' . $events[0]->image) }} @else {{ asset('user') }}/img/blog/{{ $events[0]->category->slug }}.jpg @endif">
+                            <a href="events?category={{ $events[0]->category->slug }}">
+                                <div class="li-tag">{{ $events[0]->category->name }}</div>
                             </a>
                             <div class="li-text"
                                 style="background-color: rgba(0,0,0,0.5); padding-top: 10px; padding-bottom: 10px;">
-                                <h5><a href="/events/event/{{ $event->slug }}"
-                                        class="text-decoration-none">{{ $event->name }}</a></h5>
-                                <span><i class="fa fa-clock-o me-1"></i> {{ $event->date }} | <a
+                                <h4><a href="/events/event/{{ $events[0]->slug }}"
+                                        class="text-decoration-none">{{ $events[0]->name }}</a></h4>
+                                <span><i class="fa fa-clock-o me-1"></i> {{ $events[0]->date }} | <a
                                         class="text-decoration-none text-light"
-                                        href="/events?EO={{ $event->EO->username }}"><i
+                                        href="/events?EO={{ $events[0]->EO->username }}"><i
                                             class="fa-solid fa-ghost me-1"></i>
-                                        {{ $event->EO->name }}</a></span>
+                                        {{ $events[0]->EO->name }}</a></span>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="col-lg-6">
+                        @foreach ($events->skip(1)->take(2) as $event)
+                            <div class="latest-item set-bg"
+                                data-setbg="@if ($event->image) {{ asset('storage/' . $event->image) }} @else{{ asset('user') }}/img/blog/{{ $event->category->slug }}.jpg @endif">
+                                <a href="events?category={{ $event->category->slug }}">
+                                    <div class="li-tag">{{ $event->category->name }}</div>
+                                </a>
+                                <div class="li-text"
+                                    style="background-color: rgba(0,0,0,0.5); padding-top: 10px; padding-bottom: 10px;">
+                                    <h5><a href="/events/event/{{ $event->slug }}"
+                                            class="text-decoration-none">{{ $event->name }}</a></h5>
+                                    <span><i class="fa fa-clock-o me-1"></i> {{ $event->date }} | <a
+                                            class="text-decoration-none text-light"
+                                            href="/events?EO={{ $event->EO->username }}"><i
+                                                class="fa-solid fa-ghost me-1"></i>
+                                            {{ $event->EO->name }}</a></span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
+            @else
+                <p class="text-center">No Latest Event</p>
+            @endif
+
         </div>
     </section>
     <!-- latest BLog Section End -->

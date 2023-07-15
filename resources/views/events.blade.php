@@ -103,8 +103,7 @@
     <section class="blog-section spad">
         <div class="container">
             <div class="text-center">
-                <p><i class="fa-solid fa-face-sad-tear"></i> The event isn't available yet! <a
-                        class="text-decoration-none text-dark" href="/events"><strong>See available events here</strong></a>
+                <p><i class="fa-solid fa-face-sad-tear"></i> The event isn't available yet!
                 </p>
             </div>
         </div>

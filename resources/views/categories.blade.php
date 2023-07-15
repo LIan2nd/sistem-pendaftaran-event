@@ -22,46 +22,51 @@
 
     <section class="schedule-table-section spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="schedule-table-tab">
-                        <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
-                            @foreach ($categories as $category)
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#{{ $category->slug }}"
-                                        role="tab">{{ $category->name }}</a>
-                                </li>
-                            @endforeach
-                        </ul><!-- Tab panes -->
-                        <div class="tab-content">
-                            @foreach ($events as $event)
-                                <div class="tab-pane" id="{{ $event->category->slug }}" role="tabpanel">
-                                    <div class="schedule-table-content">
-                                        @foreach ($events->where('category_id', $event->category_id) as $event)
-                                            @if (!isset($displayedEvents[$event->category_id]))
-                                                <a href="/events?category={{ $event->category->slug }}">
-                                                    <div class="card text-bg-dark">
-                                                        <img src="{{ asset('user') }}/img//blog/{{ $event->category->slug }}.jpg"
-                                                            class="card-img" alt="{{ $event->category->slug }}">
-                                                        <div class="card-img-overlay d-flex align-items-center p-0">
-                                                            <h5 class="card-title flex-fill text-light text-center display-1 p-4"
-                                                                style="background-color: rgba(0,0,0,0.5)">
-                                                                {{ $event->category->name }}</h5>
+            @if ($categories->count())
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="schedule-table-tab">
+                            <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
+                                @foreach ($categories as $category)
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#{{ $category->slug }}"
+                                            role="tab">{{ $category->name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul><!-- Tab panes -->
+                            <div class="tab-content">
+                                @foreach ($events as $event)
+                                    <div class="tab-pane" id="{{ $event->category->slug }}" role="tabpanel">
+                                        <div class="schedule-table-content">
+                                            @foreach ($events->where('category_id', $event->category_id) as $event)
+                                                @if (!isset($displayedEvents[$event->category_id]))
+                                                    <a href="/events?category={{ $event->category->slug }}">
+                                                        <div class="card text-bg-dark">
+                                                            <img src="{{ asset('user') }}/img//blog/{{ $event->category->slug }}.jpg"
+                                                                class="card-img" alt="{{ $event->category->slug }}">
+                                                            <div class="card-img-overlay d-flex align-items-center p-0">
+                                                                <h5 class="card-title flex-fill text-light text-center display-1 p-4"
+                                                                    style="background-color: rgba(0,0,0,0.5)">
+                                                                    {{ $event->category->name }}</h5>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </a>
-                                                @php
-                                                    $displayedEvents[$event->category_id] = true;
-                                                @endphp
-                                            @endif
-                                        @endforeach
+                                                    </a>
+                                                    @php
+                                                        $displayedEvents[$event->category_id] = true;
+                                                    @endphp
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <p class="text-center">No Category</p>
+            @endif
+
         </div>
     </section>
 @endsection
