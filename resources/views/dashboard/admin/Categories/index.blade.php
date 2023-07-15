@@ -92,7 +92,7 @@
                             <h5 class="card-title text-info">Ooppss!!</h5>
                             <p class="card-text">We haven't category yet, Lord. Let's make some <storng>category</strong>.
                             </p>
-                            <a href="admin/categories/create" class="btn btn-primary">Create a category</a>
+                            <a href="/dashboard/admin/categories/create" class="btn btn-primary">Create a category</a>
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ class CategoryAdminController extends Controller
      */
     public function create()
     {
-        return view('dashboard.admin.categories.create', [
+        return view('dashboard.admin.Categories.create', [
         ]);
     }
 

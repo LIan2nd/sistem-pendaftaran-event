@@ -72,10 +72,11 @@
                                         role="tab">{{ $category->name }}</a>
                                 </li>
                             @endforeach
-                        </ul><!-- Tab panes -->
+                        </ul>
+                        <!-- Tab panes -->
                         <div class="tab-content">
-                            @foreach ($events as $event)
-                                <div class="tab-pane" id="{{ $event->category->slug }}" role="tabpanel">
+                            @foreach ($categories as $category)
+                                <div class="tab-pane" id="{{ $category->slug }}" role="tabpanel">
                                     <div class="schedule-table-content">
                                         <table>
                                             <thead>
@@ -87,23 +88,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($events->where('category_id', $event->category_id)->take(3) as $event)
+                                                @if ($events->where('category_id', $category->id)->count())
+                                                    @foreach ($events->where('category_id', $category->id)->take(3) as $event)
+                                                        <tr>
+                                                            <td class="break hover-bg">{{ $event->name }}</td>
+                                                            <td class="event-time">
+                                                                <h5>{{ $event->date }}</h5>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    @if ($events->where('category_id', $category->id)->count() > 3)
+                                                        <tr>
+                                                            <td></td>
+                                                            <th class="event-time"><a
+                                                                    href="/events?category={{ $category->slug }}"
+                                                                    class="site-btn text-decoration-none text-white">More
+                                                                    Event on this Category <i
+                                                                        class="fa-solid fa-angles-right"></i></a>
+                                                            </th>
+                                                        </tr>
+                                                    @endif
+                                                @else
                                                     <tr>
-                                                        <td class="break hover-bg">{{ $event->name }}</td>
+                                                        <td class="break hover-bg">No Event</td>
                                                         <td class="event-time">
-                                                            <h5>{{ $event->date }}</h5>
+                                                            <h5></h5>
                                                         </td>
                                                     </tr>
-                                                @endforeach
-                                                <tr>
-                                                    <td></td>
-                                                    <th class="event-time"><a
-                                                            href="/events?category={{ $event->category->slug }}"
-                                                            class="site-btn text-decoration-none text-white">More
-                                                            Event on this Category <i
-                                                                class="fa-solid fa-angles-right"></i></a>
-                                                    </th>
-                                                </tr>
+                                                @endif
                                             </tbody>
                                         </table>
                                     </div>
