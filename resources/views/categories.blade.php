@@ -59,6 +59,23 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @foreach ($categories as $category)
+                                    <div class="tab-pane" id="{{ $category->slug }}" role="tabpanel">
+                                        <div class="schedule-table-content">
+                                            <a href="/events?category={{ $category->slug }}">
+                                                <div class="card text-bg-dark">
+                                                    <img src="{{ asset('user') }}/img//blog/{{ $category->slug }}.jpg"
+                                                        class="card-img" alt="{{ $category->slug }}">
+                                                    <div class="card-img-overlay d-flex align-items-center p-0">
+                                                        <h5 class="card-title flex-fill text-light text-center display-1 p-4"
+                                                            style="background-color: rgba(0,0,0,0.5)">
+                                                            {{ $category->name }}</h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

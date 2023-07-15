@@ -91,7 +91,9 @@
                                                 @if ($events->where('category_id', $category->id)->count())
                                                     @foreach ($events->where('category_id', $category->id)->take(3) as $event)
                                                         <tr>
-                                                            <td class="break hover-bg">{{ $event->name }}</td>
+                                                            <td class="break hover-bg"><a class="text-dark"
+                                                                    href="/events/event/{{ $event->slug }}">{{ $event->name }}</a>
+                                                            </td>
                                                             <td class="event-time">
                                                                 <h5>{{ $event->date }}</h5>
                                                             </td>
